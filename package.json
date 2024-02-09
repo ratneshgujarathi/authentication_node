@@ -1,0 +1,32 @@
+{
+  "name": "authentication_node",
+  "version": "1.0.0",
+  "description": "Jwt Authentication with swagger implementation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ratneshgujarathi/authentication_node.git"
+  },
+  "keywords": [
+    "Jwt",
+    "Authentication",
+    "NodeJs"
+  ],
+  "author": "Ratnesh Gujarathi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ratneshgujarathi/authentication_node/issues"
+  },
+  "homepage": "https://github.com/ratneshgujarathi/authentication_node#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
