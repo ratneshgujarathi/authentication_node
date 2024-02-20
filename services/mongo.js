@@ -12,5 +12,5 @@ function db_init(mongoUrl, dbName){
       process.exit(1)
     }
   }
-const db = db_init(conf[env].mongoURI, conf[env].db);
-module.exports = {db} 
+const db = db_init(conf.mongoURI, conf.db);
+module.exports = db

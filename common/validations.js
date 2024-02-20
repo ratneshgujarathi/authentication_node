@@ -20,7 +20,7 @@ var valid = {
             return { error: 0, data: sanitized };
         } catch (err) {
             console.log(err);
-            return { error: 1, data: err[0] };
+            return { error: 1, data: err };
         }
     },
 };
