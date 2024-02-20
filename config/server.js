@@ -2,6 +2,7 @@ const express = require('express');
 const swaggerJSDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 const swaggerConfig = require('../swagger/swagger');
+const _ = require('../services/mongo');
 
 const app = express();
 
