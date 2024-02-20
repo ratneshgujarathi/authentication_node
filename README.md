@@ -6,3 +6,4 @@ Basic JWT authentication in NodeJs express and swagger implementation
 - [ ]   Morgan Logger
 - [x]   Error Handling
 - [ ]   MiddleWare Setup
+- [ ]   Mongo Db Connection
