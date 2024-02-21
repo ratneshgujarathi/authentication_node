@@ -7,7 +7,7 @@ async function createUser(req, res) {
         const response = utility.successResponse(token);
         res.status(200).json(response);
     } catch (error) {
-        console.log(error);
+        utility.logWriter({ err: error.stack, params: req.body, url: req.originalUrl }, 'user_error_log');
         const response = utility.errorResponse(error)
         res.status(error.httpCode?error.httpCode:400).json(response);
     }
@@ -19,7 +19,7 @@ async function loginUser(req, res) {
         const response = utility.successResponse(tokens);
         res.status(200).json(response);
     } catch (error) {
-        console.log(error);
+        utility.logWriter({ err: error.stack, params: req.body, url: req.originalUrl }, 'user_error_log');
         const response = utility.errorResponse({error})
         res.status(error.httpCode?error.httpCode:400).json(response);
     }

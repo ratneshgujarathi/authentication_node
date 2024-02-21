@@ -28,7 +28,9 @@
     "express": "^4.18.2",
     "indicative": "^7.4.4",
     "jsonwebtoken": "^9.0.2",
-    "mongodb": "^6.3.0"
+    "moment": "^2.30.1",
+    "mongodb": "^6.3.0",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.3",
