@@ -1,7 +1,6 @@
 const jwt = require('jsonwebtoken');
 const config = require('../../../../config');
 const bcrypt = require('bcrypt')
-const { InternalError } = require('../../../../helpers/error-helper/Error');
 
 
 const createTokens = (params) => {
@@ -15,12 +14,11 @@ const validateToken = (token) => {
         const decodedToken = jwt.verify(token, config.secretKey);
         if (decodedToken) {
             return decodedToken;
-        }else{
+        } else {
             return false;
         }
     } catch (error) {
-        console.log(error);
-        throw new InternalError(error.message?error.message:'Error In Validity Checking')
+        throw error
     }
 }
 
@@ -37,7 +35,7 @@ const hashPassword = async (password, SALT_ROUNDS = 10) => {
         const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
         return hashedPassword;
     } catch (error) {
-        throw new InternalError('Error hashing password');
+        throw error
     }
 };
 
@@ -46,7 +44,7 @@ const verifyPassword = async (password, hashedPassword) => {
         const isPasswordCorrect = await bcrypt.compare(password, hashedPassword);
         return isPasswordCorrect;
     } catch (error) {
-        throw new InternalError('Error hashing password');
+        throw error;
     }
 };
 

@@ -1,5 +1,6 @@
 const valid = require('../../../../common/validations');
 const userUtils = require('../users/utils');
+const {ValidationError} = require('../../../../helpers/error-helper/Error');
 
 const validateToken = async (params) => {
     let results = {}
@@ -8,7 +9,7 @@ const validateToken = async (params) => {
     }
     let finaldata = await valid.validation(rules, params);
     if (finaldata.error == 1) {
-        throw finaldata.data;
+        throw ValidationError(finaldata.data);;
     }
     const data = finaldata.data;
     const validity = userUtils.validateToken(data.token);
@@ -27,7 +28,7 @@ const refreshToken = async (params) => {
     } 
     let finaldata = await valid.validation(rules, params);
     if (finaldata.error == 1) {
-        throw finaldata.data;
+        throw ValidationError(finaldata.data);;
     }
     const data = finaldata.data;
     const tokens = userUtils.createTokensUsingRefreshToken(data.token);

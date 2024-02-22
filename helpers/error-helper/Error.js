@@ -21,17 +21,10 @@ class APIError extends BaseError {
     super(name.toUpperCase(), httpCode, isOperational, description);
   }
 }
-// Define Personalized error messages for each type of error
-class HTTP400Error extends BaseError {
-  constructor(description = 'bad request') {
-    super('NOT FOUND', HttpStatusCode.BAD_REQUEST, true, description);
+class ValidationError extends BaseError {
+  constructor(data) {
+    let description = "required validation failed on: " + data.map(e => e.field).join(', ');
+    super('MISSING FIELDS', HttpStatusCode.BAD_REQUEST, true, description);
   }
 }
-
-class InternalError extends APIError{
-  constructor(description = 'Internal Server Error'){
-    super("INTERNAL SERVER ERROR",description, HttpStatusCode.INTERNAL_SERVER, true )
-  }
-}
-
-module.exports = { HTTP400Error, APIError, InternalError }
+module.exports = { APIError, ValidationError }

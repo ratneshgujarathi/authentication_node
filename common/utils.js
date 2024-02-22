@@ -33,11 +33,16 @@ const utility = {
         }
     },
     errorResponse: (error) => {
+        const err = {};
+        if (error){
+            err.name = error.name,
+            err.description = error.message?error.message:error.description
+        }
         return {
             'data': '',
             'error': {
                 'code': 1,
-                'message': error,
+                'message': err,
             }
         }
     },
