@@ -29,9 +29,6 @@ const swaggerOptions = {
       },
       securitySchemes: securityParameters,
     },
-    security: [{
-      bearerAuth: []
-    }],
     basePath: '/api'
   },
   // API files to include

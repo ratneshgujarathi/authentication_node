@@ -11,6 +11,9 @@ module.exports = {
     '/api/user/user': {
         get: {
             summary: 'Get all users',
+            security: [{
+                bearerAuth: []
+              }],
             parameters: [
                 ...getSwaggerComponents(queryParameters, ['search', 'limit', 'sort'])
             ],
@@ -22,9 +25,12 @@ module.exports = {
         },
     },
     '/api/user/user/{id}': {
-        parameters: [...getSwaggerComponents(pathParameters, ['id']), ...headersParameters],
+        parameters: [...getSwaggerComponents(pathParameters, ['id'])],
         get: {
             summary: 'Get user details',
+            security: [{
+                bearerAuth: []
+              }],
             responses: {
                 '200': {
                     description: 'Detail of user',
