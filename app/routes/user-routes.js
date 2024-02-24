@@ -4,7 +4,7 @@ const jwtMiddleWare = require('../../middleware/jwt-middleware');
 
 const router = express.Router();
 
-router.route("/create").post(userController.createUser);
+router.route("/register").post(userController.createUser);
 router.route("/login").post(userController.loginUser);
 
 router.get("/user", jwtMiddleWare, userController.getUserList);

@@ -3,4 +3,8 @@ let getSwaggerComponents = (collection, options = [], required = false) => {
     : collection.filter(item => options.includes(item.name));
 }
 
-module.exports = { getSwaggerComponents }
+let postSwaggerComponents = (collection, name) => {
+    return collection[name];
+}
+
+module.exports = { getSwaggerComponents, postSwaggerComponents }

@@ -16,7 +16,7 @@ async function createUser(params) {
     }
     let finaldata = await valid.validation(rules, params);
     if (finaldata.error == 1) {
-        throw ValidationError(finaldata.data);
+        throw new ValidationError(finaldata.data);
     }
     const data = finaldata.data;
     let userCheck = await collections.userCollection.findOne({ '$or': [{ username: data.username }, { email: data.email }] });
@@ -38,13 +38,13 @@ async function createUser(params) {
 const verifyUser = async (params) => {
     let results = {};
     const rules = {
-        email: 'required|string|email',
+        email: 'string|email',
         password: 'required|string',
         username: 'string'
     }
     let finaldata = await valid.validation(rules, params);
     if (finaldata.error == 1) {
-        throw ValidationError(finaldata.data);;
+        throw new ValidationError(finaldata.data);;
     }
     const data = finaldata.data;
     let userCheck = await collections.userCollection.findOne({ '$or': [{ username: data.username }, { email: data.email }] });
